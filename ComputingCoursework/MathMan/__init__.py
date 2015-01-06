@@ -1,4 +1,4 @@
-import pygame,sys
+import pygame,sys,splashscreen
 from pygame.locals import *
 
 #Start pygame
@@ -16,8 +16,9 @@ game_state = "splash"
 
 #Main Game Loop
 while True:
+    splashscreen.draw_splashscreen(DISPLAYSURF)
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
-            sys.exit
-    
+            sys.exit()
+    pygame.display.update()
