@@ -1,9 +1,10 @@
-import pygame,os
+import pygame
 
 pygame.init()
 
-title_font = os.path.join(os.path.dirname(__file__), 'resources\\fonts\ETHNOCENTRIC RG.TTF')
-word_font  = os.path.join(os.path.dirname(__file__), 'resources\\fonts\SQUARED DISPLAY.TTF')
+title_font = pygame.font.match_font('ethnocentric')
+word_font = pygame.font.match_font('squared display')
+
 
 def print_title(surface,text,color,size,position):
     my_font =  pygame.font.Font(title_font,size)
