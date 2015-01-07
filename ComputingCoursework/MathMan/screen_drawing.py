@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 
-title_font = pygame.font.match_font('ethnocentric')
+title_font = pygame.font.match_font('ethnocentricrgregular')
 word_font = pygame.font.match_font('squared display')
 
 
