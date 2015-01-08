@@ -1,5 +1,12 @@
-'''
-Created on 6 Jan 2015
+"""Stores the key variables of the game for easy editing/fetching"""
 
-@author: Jack
-'''
+
+#Pygame structure
+x_resolution = 772
+y_resolution = 676
+
+#Question system
+difficulty = "medium"
+
+#Game variables
+speed = "4"

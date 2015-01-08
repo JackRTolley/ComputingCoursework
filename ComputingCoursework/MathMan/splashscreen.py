@@ -1,5 +1,4 @@
 import pygame,screen_drawing,sys
-from pygame.constants import MOUSEMOTION, MOUSEBUTTONDOWN
 
 #Colors
 pygame.init()
