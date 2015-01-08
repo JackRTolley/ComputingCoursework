@@ -1,6 +1,5 @@
 import pygame, sys, variables
-from MathMan.screens import splashscreen
-from MathMan.screens import options_screen
+from MathMan.screens import splashscreen,options_screen,game_screen
 from pygame.locals import *
 
 #Start pygame
@@ -22,6 +21,8 @@ while True:
         splashscreen.draw(DISPLAYSURF)
     elif game_state == "options":
         options_screen.draw(DISPLAYSURF)
+    elif game_state == "game":
+                game_screen.draw(DISPLAYSURF)
     
     #Event Handling
     for event in pygame.event.get():
@@ -31,6 +32,8 @@ while True:
                 splashscreen.dynamic(event)
             elif game_state == "options":
                 options_screen.dynamic(event)
+            #elif game_state = "game"
+                
         #Game State changing options
         elif event.type == MOUSEBUTTONDOWN:
             if game_state == "splash": 

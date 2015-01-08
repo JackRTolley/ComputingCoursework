@@ -2,9 +2,9 @@ import pygame, screen_drawing
 from MathMan import variables
 from pygame.constants import MOUSEMOTION
 
-#Colors
-pygame.init()
 
+pygame.init()
+#Colors
 white = pygame.Color(255,255,255)
 black = pygame.Color(  0,  0,  0)
 green = pygame.Color(  0,255,  0)
