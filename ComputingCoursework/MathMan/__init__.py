@@ -1,4 +1,6 @@
-import pygame,sys,splashscreen,options_screen,variables
+import pygame, sys, variables
+from MathMan.screens import splashscreen
+from MathMan.screens import options_screen
 from pygame.locals import *
 
 #Start pygame

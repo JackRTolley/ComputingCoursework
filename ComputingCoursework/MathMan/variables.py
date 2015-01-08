@@ -6,7 +6,7 @@ x_resolution = 772
 y_resolution = 676
 
 #Question system
-difficulty = "medium"
+difficulty_setting = "medium"
 
 #Game variables
-speed = "4"
+speed_setting = "4"

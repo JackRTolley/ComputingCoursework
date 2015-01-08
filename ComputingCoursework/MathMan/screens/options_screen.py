@@ -1,4 +1,5 @@
-import pygame,screen_drawing,variables
+import pygame, screen_drawing
+from MathMan import variables
 from pygame.constants import MOUSEMOTION
 
 #Colors

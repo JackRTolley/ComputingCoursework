@@ -1,4 +1,5 @@
-import pygame,screen_drawing,sys
+import pygame, sys,screen_drawing
+
 
 #Colors
 pygame.init()
