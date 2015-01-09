@@ -1,5 +1,5 @@
 import pygame, sys, variables
-from MathMan.screens import splashscreen,options_screen,game_screen
+from MathMan.screens import splashscreen, options_screen, game_screen,level_complete_screen,game_over_screen
 from pygame.locals import *
 
 #Start pygame
@@ -12,7 +12,7 @@ pygame.display.set_caption("MathMan")
 
 #GameLogic
 
-game_state = "splash"
+game_state = "level_complete"
 
 #Main Game Loop
 while True:
@@ -23,27 +23,38 @@ while True:
         options_screen.draw(DISPLAYSURF)
     elif game_state == "game":
                 game_screen.draw(DISPLAYSURF)
+    elif game_state == "level_complete":
+        level_complete_screen.draw(DISPLAYSURF)   
+    elif game_state == "game_over":
+        game_over_screen.draw(DISPLAYSURF)
+        
     
     #Event Handling
-    for event in pygame.event.get():
-        #Dynamic User Feedback
-        if event.type == MOUSEMOTION:
-            if game_state == "splash": 
-                splashscreen.dynamic(event)
-            elif game_state == "options":
-                options_screen.dynamic(event)
-            #elif game_state = "game"
-                
-        #Game State changing options
-        elif event.type == MOUSEBUTTONDOWN:
-            if game_state == "splash": 
-                game_state = splashscreen.game_state(event)
-            elif game_state == "options":
-                options_screen.change_options(event)
-                game_state = options_screen.game_state(event)
-
-                
-        elif event.type == QUIT:
+    for event in pygame.event.get():             
+        # System Events
+        if event.type == QUIT:
             pygame.quit()
-            sys.exit()
+            sys.exit()        
+        # Game State events
+        elif game_state == "splash":
+            if event.type == MOUSEMOTION:
+                splashscreen.dynamic(event)
+            elif event.type == MOUSEBUTTONDOWN:
+                game_state = splashscreen.game_state(event)                               
+        elif game_state == "options":
+            if event.type == MOUSEMOTION:
+                options_screen.dynamic(event)
+            elif event.type == MOUSEBUTTONDOWN:
+                options_screen.change_options(event)
+                game_state = options_screen.game_state(event)       
+        elif game_state == "game":
+            if event.type == KEYDOWN:
+                if event.key in (K_l,K_e):
+                    game_state = game_screen.game_state(event)
+        elif game_state == "level_complete":
+            if event.type == MOUSEMOTION:
+                level_complete_screen.dynamic(event)
+            elif event.type == MOUSEBUTTONDOWN:
+                game_state = level_complete_screen.game_state(event)
+                            
     pygame.display.update()

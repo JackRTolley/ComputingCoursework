@@ -75,7 +75,7 @@ def draw(surface):
         
     
 def dynamic(event):
-    """Handles all events related to the splash screen (gamestate/colour change)"""
+    """Handles all events related to the splash screen (colour change)"""
     global back_color,red,white,green,easy_color,medium_color,hard_color,speed
         
     if event.type == MOUSEMOTION:

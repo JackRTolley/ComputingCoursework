@@ -17,8 +17,6 @@ def draw(surface):
     pygame.draw.rect(surface,black,(0,0,772,676))
     
     #Titles
-    screen_drawing.print_title(surface, "Level Complete!", white, 80, (130,  0))
-    screen_drawing.print_title(surface, "Next level"   , white , 30, (200,530))
+    screen_drawing.print_title(surface, "Game Over", white, 80, (130,  0))
     screen_drawing.print_title(surface, "Main Menu"   , white , 30, (400,530))
     screen_drawing.print_title(surface, "Score", white, 20, (180, 150))
-    screen_drawing.print_title(surface, "Lives", white, 20, (180, 350))
