@@ -1,4 +1,5 @@
 import pygame,screen_drawing
+from MathMan import variables
 from pygame.locals import *
 
 
@@ -24,7 +25,7 @@ def draw(surface):
     screen_drawing.print_title(surface, "Level"    , white, 80, (220,  0))
     screen_drawing.print_title(surface, "Complete!", white, 80, (70,  90))
     screen_drawing.print_title(surface, "Score"    , white, 20, (180, 260))
-    screen_drawing.print_title(surface, "Score_Variable"    , white, 30, (320, 250))
+    screen_drawing.print_title(surface, variables.score    , white, 30, (320, 250))
     screen_drawing.print_title(surface, "Lives"    , white, 20, (185, 380))
     screen_drawing.print_title(surface, "Live variable"    , white, 30, (320, 370))
     screen_drawing.print_title(surface, "Next"     , next_level, 30, (175,500))
@@ -51,7 +52,7 @@ def game_state(event):
         if (event.pos[0] >= 170) and (event.pos[0] <= 305):
             print "game state changed to next level"
             return "game"
-        if (event.pos[0] >= 480) and (event.pos[0] <= 605):
+        elif (event.pos[0] >= 480) and (event.pos[0] <= 605):
             return "splash"
         else:
             return "level_complete" 

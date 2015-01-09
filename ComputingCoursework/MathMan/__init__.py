@@ -12,7 +12,7 @@ pygame.display.set_caption("MathMan")
 
 #GameLogic
 
-game_state = "level_complete"
+game_state = "game_over"
 
 #Main Game Loop
 while True:
@@ -28,7 +28,6 @@ while True:
     elif game_state == "game_over":
         game_over_screen.draw(DISPLAYSURF)
         
-    
     #Event Handling
     for event in pygame.event.get():             
         # System Events
@@ -56,5 +55,10 @@ while True:
                 level_complete_screen.dynamic(event)
             elif event.type == MOUSEBUTTONDOWN:
                 game_state = level_complete_screen.game_state(event)
+        elif game_state == "game_over":
+            if event.type == MOUSEMOTION:
+                game_over_screen.dynamic(event)
+            elif event.type == MOUSEBUTTONDOWN:
+                game_state = game_over_screen.game_state(event)
                             
     pygame.display.update()
