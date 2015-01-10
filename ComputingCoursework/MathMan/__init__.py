@@ -12,11 +12,11 @@ pygame.display.set_caption("MathMan")
 
 #GameLogic
 
-game_state = "game"
+game_state = "splash"
 
 #Main Game Loop
 while True:
-    if pygame.time.get_ticks() % 500 == 0:
+    if pygame.time.get_ticks() % 5 == 0:
         #Draw Handling
         if game_state == "splash":
             splashscreen.draw(DISPLAYSURF)
