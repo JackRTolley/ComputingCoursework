@@ -63,6 +63,5 @@ while True:
         elif game_state == "level_complete":
             level_complete_screen.draw(DISPLAYSURF)   
         elif game_state == "game_over":
-            game_over_screen.draw(DISPLAYSURF)
-                                
+            game_over_screen.draw(DISPLAYSURF)                      
         pygame.display.update()

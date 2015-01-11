@@ -9,7 +9,7 @@ class MathMan():
     def __init__(self):
         self.position  = None
         self.direction = None
-        self.buff      = None
+        self.buff      = False
     
     def get_position(self):
         """Finds position by cycling through grid"""
@@ -40,14 +40,51 @@ class MathMan():
     def move(self):
                
         if self.direction == 'up':
-            variables.grid[self.position[0]][self.position[1]]   = 'NON'
-            variables.grid[self.position[0]-1][self.position[1]] = 'M_M'
+            if variables.grid[self.position[0]-1][self.position[1]] in ('P_B','P_N','NON'):
+                if variables.grid[self.position[0]-1][self.position[1]] == 'P_B':
+                    self.buff = True
+                    variables.score += 50
+                elif variables.grid[self.position[0]-1][self.position[1]] == 'P_N':
+                    variables.score += 1
+                variables.grid[self.position[0]][self.position[1]]   = 'NON'
+                variables.grid[self.position[0]-1][self.position[1]] = 'M_M'
+                
         if self.direction == 'down':
-            variables.grid[self.position[0]][self.position[1]]   = 'NON'
-            variables.grid[self.position[0]+1][self.position[1]] = 'M_M'
+            if variables.grid[self.position[0]+1][self.position[1]] in ('P_B','P_N','NON'):
+                if variables.grid[self.position[0]+1][self.position[1]] == 'P_B':
+                    self.buff = True
+                    variables.score += 50
+                elif variables.grid[self.position[0]+1][self.position[1]] == 'P_N':
+                    variables.score += 1
+                variables.grid[self.position[0]][self.position[1]]   = 'NON'
+                variables.grid[self.position[0]+1][self.position[1]] = 'M_M'
+                
         if self.direction == 'left':
-            variables.grid[self.position[0]][self.position[1]]   = 'NON'
-            variables.grid[self.position[0]][self.position[1]-1] = 'M_M'
+            if self.position == (14,0) or self.position == (15,0):
+                variables.grid[self.position[0]][self.position[1]]   = 'NON'
+                variables.grid[self.position[0]][26]  = 'M_M'
+            
+            elif variables.grid[self.position[0]][self.position[1]-1] in ('P_B','P_N','NON'):
+                if variables.grid[self.position[0]][self.position[1]-1] == 'P_B':
+                    self.buff = True
+                    variables.score += 50
+                elif variables.grid[self.position[0]][self.position[1]-1] == 'P_N':
+                    variables.score += 1
+                variables.grid[self.position[0]][self.position[1]]   = 'NON'
+                variables.grid[self.position[0]][self.position[1]-1] = 'M_M'
+                
         if self.direction == 'right':
-            variables.grid[self.position[0]][self.position[1]]   = 'NON'
-            variables.grid[self.position[0]][self.position[1]+1] = 'M_M'
+            if self.position == (14,26) or self.position == (15,26):
+                variables.grid[self.position[0]][self.position[1]]   = 'NON'
+                variables.grid[self.position[0]][0]  = 'M_M'
+                
+                
+            elif variables.grid[self.position[0]][self.position[1]+1] in ('P_B','P_N','NON'):
+                if variables.grid[self.position[0]][self.position[1]+1] == 'P_B':
+                    self.buff = True
+                    variables.score += 50
+                elif variables.grid[self.position[0]][self.position[1]+1] == 'P_N':
+                    variables.score += 1
+                variables.grid[self.position[0]][self.position[1]]   = 'NON'
+                variables.grid[self.position[0]][self.position[1]+1] = 'M_M'
+                

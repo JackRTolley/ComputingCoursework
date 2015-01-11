@@ -10,7 +10,8 @@ difficulty_setting = "medium"
 
 #Game variables
 speed_setting = "4"
-score         = ""
+score         = 0
+math_man_buff = False
 
 
 

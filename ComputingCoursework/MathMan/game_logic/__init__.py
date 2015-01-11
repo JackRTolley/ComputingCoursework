@@ -12,6 +12,7 @@ corner_up_left    = pygame.image.load('assets/border_corner_UL.png')
 corner_down_left  = pygame.image.load('assets/border_corner_DL.png')
 corner_up_right   = pygame.image.load('assets/border_corner_UR.png')
 math_man          = pygame.image.load('assets/math_man.png')
+math_man_buff     = pygame.image.load('assets/math_man_buff.png')
 
 #tile = tile_surface.convert()
 
@@ -43,7 +44,10 @@ def draw_game(start_pos,surface):
             elif y == "NON":
                 pygame.draw.rect(surface,pygame.Color(0,0,0),(pos[0],pos[1],16,18))
             elif y == "M_M":
-                surface.blit(math_man,pos)            
+                if variables.math_man_buff:
+                    surface.blit(math_man_buff,pos)
+                else:
+                    surface.blit(math_man,pos)            
         column_number = 0
     row_number = 0
     event_handling.event_handling_on_draw()      
