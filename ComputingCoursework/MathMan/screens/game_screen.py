@@ -24,6 +24,10 @@ def draw(surface):
     #game
     game_logic.draw_game((50,50), surface)
 
+def event_handling(event):
+    game_logic.game_event_handling(event)
+
+
 def game_state(event):
     if event.key == K_l:
         return "level_complete"

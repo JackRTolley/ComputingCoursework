@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 from MathMan import variables
 
 
@@ -7,7 +8,7 @@ class MathMan():
     
     def __init__(self):
         self.position  = None
-        self.direction = "left"
+        self.direction = None
         self.buff      = None
     
     def get_position(self):
@@ -22,7 +23,20 @@ class MathMan():
                     break
                 y_place += 1
             x_place += 1
-            
+    
+    def get_direction(self,event):       
+        if event.key == K_w:
+            self.direction = "up"
+        elif event.key == K_a:
+            self.direction = "left"
+        elif event.key == K_s:
+            self.direction = "down"
+        elif event.key == K_d:
+            self.direction = "right"
+         
+    
+    
+           
     def move(self):
                
         if self.direction == 'up':

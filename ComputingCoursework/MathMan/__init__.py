@@ -16,18 +16,8 @@ game_state = "game"
 
 #Main Game Loop
 while True:
-    if pygame.time.get_ticks() % 200  == 0:
-        #Draw Handling
-        if game_state == "splash":
-            splashscreen.draw(DISPLAYSURF)
-        elif game_state == "options":
-            options_screen.draw(DISPLAYSURF)
-        elif game_state == "game":
-                    game_screen.draw(DISPLAYSURF)
-        elif game_state == "level_complete":
-            level_complete_screen.draw(DISPLAYSURF)   
-        elif game_state == "game_over":
-            game_over_screen.draw(DISPLAYSURF)           
+    if pygame.time.get_ticks() % 250  == 0:
+                   
         #Event Handling
         for event in pygame.event.get():             
             # System Events
@@ -47,6 +37,8 @@ while True:
                     options_screen.change_options(event)
                     game_state = options_screen.game_state(event)       
             elif game_state == "game":
+                if event.type == KEYUP:
+                    game_screen.event_handling(event)
                 if event.type == KEYDOWN:
                     if event.key in (K_l,K_e):
                         game_state = game_screen.game_state(event)
@@ -60,5 +52,17 @@ while True:
                     game_over_screen.dynamic(event)
                 elif event.type == MOUSEBUTTONDOWN:
                     game_state = game_over_screen.game_state(event)
+        
+        #Draw Handling
+        if game_state == "splash":
+            splashscreen.draw(DISPLAYSURF)
+        elif game_state == "options":
+            options_screen.draw(DISPLAYSURF)
+        elif game_state == "game":
+            game_screen.draw(DISPLAYSURF)
+        elif game_state == "level_complete":
+            level_complete_screen.draw(DISPLAYSURF)   
+        elif game_state == "game_over":
+            game_over_screen.draw(DISPLAYSURF)
                                 
         pygame.display.update()

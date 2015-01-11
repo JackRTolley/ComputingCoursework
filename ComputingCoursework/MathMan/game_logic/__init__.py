@@ -45,6 +45,8 @@ def draw_game(start_pos,surface):
             elif y == "M_M":
                 surface.blit(math_man,pos)            
         column_number = 0
-    row_number = 0 
-    event_handling.event_handling()         
-                
+    row_number = 0
+    event_handling.event_handling_on_draw()      
+
+def game_event_handling(event):
+    event_handling.event_handling_on_action(event)              
