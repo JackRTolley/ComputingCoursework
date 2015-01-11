@@ -12,6 +12,8 @@ difficulty_setting = "medium"
 speed_setting = "4"
 score         = 0
 math_man_buff = False
+buff_timer = 0
+fruit_timer = 0
 
 
 

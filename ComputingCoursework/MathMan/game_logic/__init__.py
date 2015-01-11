@@ -13,6 +13,7 @@ corner_down_left  = pygame.image.load('assets/border_corner_DL.png')
 corner_up_right   = pygame.image.load('assets/border_corner_UR.png')
 math_man          = pygame.image.load('assets/math_man.png')
 math_man_buff     = pygame.image.load('assets/math_man_buff.png')
+fruit             = pygame.image.load('assets/fruit.png')
 
 #tile = tile_surface.convert()
 
@@ -47,8 +48,11 @@ def draw_game(start_pos,surface):
                 if variables.math_man_buff:
                     surface.blit(math_man_buff,pos)
                 else:
-                    surface.blit(math_man,pos)            
+                    surface.blit(math_man,pos) 
+            elif y == "FRT":
+                surface.blit(fruit,pos)         
         column_number = 0
+        
     row_number = 0
     event_handling.event_handling_on_draw()      
 
