@@ -12,7 +12,7 @@ pygame.display.set_caption("MathMan")
 
 #GameLogic
 
-game_state = "splash"
+game_state = "game"
 
 #Main Game Loop
 while True:
@@ -28,6 +28,12 @@ while True:
             level_complete_screen.draw(DISPLAYSURF)   
         elif game_state == "game_over":
             game_over_screen.draw(DISPLAYSURF)
+        
+        
+        
+        
+        
+        
             
         #Event Handling
         for event in pygame.event.get():             

@@ -3,7 +3,8 @@ from MathMan import variables
 
 #Tiles
 
-test_tile  = pygame.image.load('assets/test_tile.png')
+point_normal  = pygame.image.load('assets/point_normal.png')
+point_buff    = pygame.image.load('assets/point_buff.png')
 horizontal_border = pygame.image.load('assets/horizontal_border.png')
 vertical_border = pygame.image.load('assets/vertical_border.png')
 corner_down_right = pygame.image.load('assets/border_corner_DR.png')
@@ -34,8 +35,13 @@ def draw_game(start_pos,surface):
                 surface.blit(corner_down_left,pos)
             elif y == 'BUR':
                 surface.blit(corner_up_right,pos)
-            else:
-                surface.blit(test_tile,pos)
+            elif y == "P_N":
+                surface.blit(point_normal,pos)
+            elif y == "P_B":
+                surface.blit(point_buff,pos)
+                
+            elif y == "NON":
+                pygame.draw.rect(surface,pygame.Color(0,0,0),(pos[0],pos[1],16,18))
                 
         column_number = 0
     row_number = 0        
