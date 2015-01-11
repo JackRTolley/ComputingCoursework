@@ -39,7 +39,7 @@ grid = [['BDR','B_H','B_H','B_H','B_H','B_H','B_H','B_H','B_H','B_H','B_H','B_H'
         ['B_V','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','B_V','B_V','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','B_V'],
         ['B_V','P_N','BDR','B_H','B_H','BDL','P_N','BDR','B_H','B_H','B_H','BDL','P_N','B_V','B_V','P_N','BDR','B_H','B_H','B_H','BDL','P_N','BDR','B_H','B_H','BDL','P_N','B_V'],
         ['B_V','P_N','BUR','B_H','BDL','B_V','P_N','BUR','B_H','B_H','B_H','BUL','P_N','BUR','BUL','P_N','BUR','B_H','B_H','B_H','BUL','P_N','B_V','BDR','B_H','BUL','P_N','B_V'],
-        ['B_V','P_B','P_N','P_N','B_V','B_V','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','B_V','B_V','P_N','P_N','P_B','B_V'],
+        ['B_V','P_B','P_N','P_N','B_V','B_V','P_N','P_N','P_N','P_N','P_N','P_N','P_N','M_M','P_N','P_N','P_N','P_N','P_N','P_N','P_N','P_N','B_V','B_V','P_N','P_N','P_B','B_V'],
         ['BUR','B_H','BDL','P_N','B_V','B_V','P_N','BDR','BDL','P_N','BDR','B_H','B_H','B_H','B_H','B_H','B_H','BDL','P_N','BDR','BDL','P_N','B_V','B_V','P_N','BDR','B_H','BUL'],
         ['BDR','B_H','BUL','P_N','BUR','BUL','P_N','B_V','B_V','P_N','BUR','B_H','B_H','BDL','BDR','B_H','B_H','BUL','P_N','B_V','B_V','P_N','BUR','BUL','P_N','BUR','B_H','BDL'],
         ['B_V','P_N','P_N','P_N','P_N','P_N','P_N','B_V','B_V','P_N','P_N','P_N','P_N','B_V','B_V','P_N','P_N','P_N','P_N','B_V','B_V','P_N','P_N','P_N','P_N','P_N','P_N','B_V'],

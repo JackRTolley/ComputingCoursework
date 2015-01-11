@@ -1,16 +1,17 @@
-import pygame,random,os
+import pygame,random,os,event_handling
 from MathMan import variables
 
 #Tiles
 
-point_normal  = pygame.image.load('assets/point_normal.png')
-point_buff    = pygame.image.load('assets/point_buff.png')
+point_normal      = pygame.image.load('assets/point_normal.png')
+point_buff        = pygame.image.load('assets/point_buff.png')
 horizontal_border = pygame.image.load('assets/horizontal_border.png')
-vertical_border = pygame.image.load('assets/vertical_border.png')
+vertical_border   = pygame.image.load('assets/vertical_border.png')
 corner_down_right = pygame.image.load('assets/border_corner_DR.png')
-corner_up_left = pygame.image.load('assets/border_corner_UL.png')
-corner_down_left = pygame.image.load('assets/border_corner_DL.png')
-corner_up_right = pygame.image.load('assets/border_corner_UR.png')
+corner_up_left    = pygame.image.load('assets/border_corner_UL.png')
+corner_down_left  = pygame.image.load('assets/border_corner_DL.png')
+corner_up_right   = pygame.image.load('assets/border_corner_UR.png')
+math_man          = pygame.image.load('assets/math_man.png')
 
 #tile = tile_surface.convert()
 
@@ -39,10 +40,11 @@ def draw_game(start_pos,surface):
                 surface.blit(point_normal,pos)
             elif y == "P_B":
                 surface.blit(point_buff,pos)
-                
             elif y == "NON":
                 pygame.draw.rect(surface,pygame.Color(0,0,0),(pos[0],pos[1],16,18))
-                
+            elif y == "M_M":
+                surface.blit(math_man,pos)            
         column_number = 0
-    row_number = 0        
+    row_number = 0 
+    event_handling.event_handling()         
                 

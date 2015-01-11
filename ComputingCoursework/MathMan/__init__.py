@@ -16,7 +16,7 @@ game_state = "game"
 
 #Main Game Loop
 while True:
-    if pygame.time.get_ticks() % 5 == 0:
+    if pygame.time.get_ticks() % 200  == 0:
         #Draw Handling
         if game_state == "splash":
             splashscreen.draw(DISPLAYSURF)
@@ -27,14 +27,7 @@ while True:
         elif game_state == "level_complete":
             level_complete_screen.draw(DISPLAYSURF)   
         elif game_state == "game_over":
-            game_over_screen.draw(DISPLAYSURF)
-        
-        
-        
-        
-        
-        
-            
+            game_over_screen.draw(DISPLAYSURF)           
         #Event Handling
         for event in pygame.event.get():             
             # System Events
