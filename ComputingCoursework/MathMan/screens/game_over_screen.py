@@ -14,6 +14,18 @@ grey  = pygame.Color( 50, 50, 50)
 #Color Variables
 main_menu = white
 
+
+def format_score(score):
+    
+    score = str(score)
+    zeros = 7 - len(score)
+    final_return = ""
+    for i in range(0,zeros):
+        final_return += "0"
+    final_return += score
+    return final_return
+        
+    
 def draw(surface):
     global white,black,green,red,grey
        
@@ -23,7 +35,7 @@ def draw(surface):
     #Titles
     screen_drawing.print_title(surface, "Game Over", white, 80, (45,  0))
     screen_drawing.print_title(surface, "Final Score"    , white, 40, (210, 200))
-    screen_drawing.print_title(surface, variables.score    , white, 50, (230, 330))
+    screen_drawing.print_title(surface, format_score(variables.score)    , white, 50, (230, 330))
     screen_drawing.print_title(surface, "Main Menu"   , main_menu , 30, (270,530))
 
 def dynamic(event):

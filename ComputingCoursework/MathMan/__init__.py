@@ -1,5 +1,6 @@
 import pygame, sys, variables
 from MathMan.screens import splashscreen, options_screen, game_screen,level_complete_screen,game_over_screen
+from MathMan.game_logic import reset
 from pygame.locals import *
 
 #Start pygame
@@ -12,11 +13,11 @@ pygame.display.set_caption("MathMan")
 
 #GameLogic
 
-game_state = "game"
+
 
 #Main Game Loop
 while True:
-    if pygame.time.get_ticks() % 250  == 0:
+    if pygame.time.get_ticks() % (1000 // int(variables.speed_setting))  == 0:
                    
         #Event Handling
         for event in pygame.event.get():             
@@ -25,44 +26,46 @@ while True:
                 pygame.quit()
                 sys.exit()        
             # Game State events
-            elif game_state == "splash":
+            elif variables.game_state == "splash":
+                reset.reset(True)
                 if event.type == MOUSEMOTION:
                     splashscreen.dynamic(event)
                 elif event.type == MOUSEBUTTONDOWN:
-                    game_state = splashscreen.game_state(event)                               
-            elif game_state == "options":
+                    variables.game_state = splashscreen.game_state(event)                               
+            elif variables.game_state == "options":
                 if event.type == MOUSEMOTION:
                     options_screen.dynamic(event)
                 elif event.type == MOUSEBUTTONDOWN:
                     options_screen.change_options(event)
-                    game_state = options_screen.game_state(event)       
-            elif game_state == "game":
+                    variables.game_state = options_screen.game_state(event)       
+            elif variables.game_state == "game":
                 if event.type == KEYUP:
                     game_screen.event_handling(event)
                 if event.type == KEYDOWN:
                     if event.key in (K_l,K_e):
-                        game_state = game_screen.game_state(event)
-            elif game_state == "level_complete":
+                        variables.game_state = game_screen.game_state(event)
+            elif variables.game_state == "level_complete":
+                reset.reset(False)
                 if event.type == MOUSEMOTION:
                     level_complete_screen.dynamic(event)
                 elif event.type == MOUSEBUTTONDOWN:
-                    game_state = level_complete_screen.game_state(event)
-            elif game_state == "game_over":
+                    variables.game_state = level_complete_screen.game_state(event)
+            elif variables.game_state == "game_over":                
                 if event.type == MOUSEMOTION:
                     game_over_screen.dynamic(event)
                 elif event.type == MOUSEBUTTONDOWN:
-                    game_state = game_over_screen.game_state(event)
+                    variables.game_state = game_over_screen.game_state(event)
+            
         
         #Draw Handling
-        if game_state == "splash":
+        if variables.game_state == "splash":
             splashscreen.draw(DISPLAYSURF)
-        elif game_state == "options":
+        elif variables.game_state == "options":
             options_screen.draw(DISPLAYSURF)
-        elif game_state == "game":
+        elif variables.game_state == "game":
             game_screen.draw(DISPLAYSURF)
-        elif game_state == "level_complete":
+        elif variables.game_state == "level_complete":
             level_complete_screen.draw(DISPLAYSURF)   
-        elif game_state == "game_over":
-            game_over_screen.draw(DISPLAYSURF)
-        print variables.fruit_timer                      
+        elif variables.game_state == "game_over":
+            game_over_screen.draw(DISPLAYSURF)                      
         pygame.display.update()

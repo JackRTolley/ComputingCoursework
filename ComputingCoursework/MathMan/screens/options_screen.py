@@ -160,7 +160,7 @@ def change_options(event):
                         new_speed.append(0)                    
                     speed = new_speed
                     speed[place] = 2
-                    variables.speed = place         
+                    variables.speed_setting = str(place + 1)         
             
 def game_state(event):         
     if (event.pos[1] >= 530) and (event.pos[1] <= 560):

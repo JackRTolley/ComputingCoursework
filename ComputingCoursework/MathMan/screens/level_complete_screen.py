@@ -15,6 +15,16 @@ grey  = pygame.Color( 50, 50, 50)
 next_level = white
 main_menu  = white
 
+def format_score(score):
+    
+    score = str(score)
+    zeros = 7 - len(score)
+    final_return = ""
+    for i in range(0,zeros):
+        final_return += "0"
+    final_return += score
+    return final_return
+
 def draw(surface):
     global white,black,green,red,grey
        
@@ -25,9 +35,9 @@ def draw(surface):
     screen_drawing.print_title(surface, "Level"    , white, 80, (220,  0))
     screen_drawing.print_title(surface, "Complete!", white, 80, (70,  90))
     screen_drawing.print_title(surface, "Score"    , white, 20, (180, 260))
-    screen_drawing.print_title(surface, variables.score    , white, 30, (320, 250))
-    screen_drawing.print_title(surface, "Lives"    , white, 20, (185, 380))
-    screen_drawing.print_title(surface, "Live variable"    , white, 30, (320, 370))
+    screen_drawing.print_title(surface, format_score(variables.score), white, 30, (320, 250))
+    screen_drawing.print_title(surface, "Lives "   , white, 20, (185, 380))
+    screen_drawing.print_title(surface, str(variables.lives), white, 30, (490, 370))
     screen_drawing.print_title(surface, "Next"     , next_level, 30, (175,500))
     screen_drawing.print_title(surface, "level"    , next_level, 30, (170,530))
     screen_drawing.print_title(surface, "Main"     , main_menu, 30, (485,500))

@@ -9,11 +9,13 @@ y_resolution = 676
 difficulty_setting = "medium"
 
 #Game variables
+game_state = "splash"
 speed_setting = "4"
 score         = 0
+lives         = 3
 math_man_buff = False
-buff_timer = 0
-fruit_timer = 0
+buff_timer    = 0
+fruit_timer   = int(speed_setting) * 60
 
 
 

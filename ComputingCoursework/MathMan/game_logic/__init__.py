@@ -21,6 +21,7 @@ def draw_game(start_pos,surface):
     global random_color,tile_surface
     row_number = 0
     column_number = 0
+    event_handling.event_handling_on_draw() 
     for x in variables.grid:
         row_number += 1
         for y in x:                    
@@ -53,8 +54,7 @@ def draw_game(start_pos,surface):
                 surface.blit(fruit,pos)         
         column_number = 0
         
-    row_number = 0
-    event_handling.event_handling_on_draw()      
+    row_number = 0      
 
 def game_event_handling(event):
     event_handling.event_handling_on_action(event)              
