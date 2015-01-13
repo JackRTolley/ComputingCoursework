@@ -29,3 +29,11 @@ def handle_fruit_timer():
             
         place = random.choice(avalible_places)
         variables.grid[place[0]][place[1]] = "FRT"
+        
+def handle_ghost_timer():
+    
+    if variables.ghost_timer > 0:
+        variables.ghost_timer -= 1
+    else:
+        variables.ghost_spawn = True
+        variables.ghost_timer = 15 * int(variables.speed_setting)

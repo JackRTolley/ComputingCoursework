@@ -13,6 +13,8 @@ red   = pygame.Color(255,  0,  0)
 grey  = pygame.Color( 50, 50, 50)
 
 question_choice = None
+question_timer = 0
+primed = False
 
 
 def draw(surface):
@@ -32,24 +34,30 @@ def draw(surface):
 def get_question():
     global question_choice  
     #Question choosing
-    random.shuffle(variables.questions)
-    if question_choice == None:    
-        for i in variables.questions:
-            if i.difficulty == variables.difficulty_setting:
-                question_choice = i
+    if len(variables.questions) > 0:
+        random.shuffle(variables.questions)
+        if question_choice == None:    
+            for i in variables.questions:
+                if i.difficulty == variables.difficulty_setting:
+                    question_choice = i
+    else:
+        question_choice = None
         
         
 def draw_question(surface):       
-    global question_choice
-    turns = 400 
+    global question_choice,question_timer,primed
+    
     if variables.question_displayed:  
         question_choice.draw(surface,(498,150))
-        turns = 4
-    elif turns > 0:
-        turns -= 1
+        question_timer = int(variables.speed_setting) * 3
+        primed = True
+    elif question_timer > 0:
+        question_timer -= 1
         question_choice.draw(surface,(498,150))
+    elif primed:       
         variables.questions.remove(question_choice)
-        question_choice = None    
+        question_choice = None
+        primed = False    
     
 def event_handling(event):
     game_logic.game_event_handling(event)

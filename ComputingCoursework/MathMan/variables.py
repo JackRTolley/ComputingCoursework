@@ -13,12 +13,14 @@ difficulty_setting = "easy"
 #Game variables
 paused = False
 game_state = "splash"
-speed_setting = "4"
+speed_setting = "8"
 score         = 0
 lives         = 3
 math_man_buff = False
 buff_timer    = 0
 fruit_timer   = int(speed_setting) * 60
+ghost_timer   = 0
+ghost_spawn   = False
 
 # Questions
 question_displayed = False

@@ -70,7 +70,7 @@ while True:
         elif variables.game_state == "game":
             game_screen.draw(DISPLAYSURF)
             game_screen.get_question()
-            if game_screen.question_choice != None  and variables.question_displayed:
+            if game_screen.question_choice != None:
                 game_screen.draw_question(DISPLAYSURF)
         elif variables.game_state == "level_complete":
             level_complete_screen.draw(DISPLAYSURF)   

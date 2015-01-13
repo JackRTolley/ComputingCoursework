@@ -14,6 +14,9 @@ corner_up_right   = pygame.image.load('assets/border_corner_UR.png')
 math_man          = pygame.image.load('assets/math_man.png')
 math_man_buff     = pygame.image.load('assets/math_man_buff.png')
 fruit             = pygame.image.load('assets/fruit.png')
+ghost_friendly    = pygame.image.load('assets/ghost_friendly.png')
+ghost_hostile     = pygame.image.load('assets/ghost_hostile.png')
+
 
 #tile = tile_surface.convert()
 
@@ -52,7 +55,13 @@ def draw_game(start_pos,surface):
                 else:
                     surface.blit(math_man,pos) 
             elif y == "FRT":
-                surface.blit(fruit,pos)         
+                surface.blit(fruit,pos)
+            elif y == "GHT":
+                if variables.math_man_buff:
+                    surface.blit(ghost_friendly,pos)
+                else:
+                    surface.blit(ghost_hostile,pos)
+                         
         column_number = 0
         
     row_number = 0      

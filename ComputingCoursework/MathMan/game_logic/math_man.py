@@ -41,9 +41,13 @@ class MathMan():
             if variables.grid[self.position[0]-1][self.position[1]] in ('P_B','P_N','NON','FRT'):
                 if variables.grid[self.position[0]-1][self.position[1]] == 'P_B':
                     variables.question_displayed = True
-                    variables.buff_timer = 5
-                    variables.paused = True
+                    variables.buff_timer = 5                    
                     self.buff = True
+                    if len(variables.questions) > 0:
+                        variables.paused = True
+                    else:
+                        variables.buff_timer = 15 * int(variables.speed_setting)
+                        
                 elif variables.grid[self.position[0]-1][self.position[1]] == 'P_N':
                     variables.score += 1
                 elif variables.grid[self.position[0]-1][self.position[1]] == 'FRT':
@@ -56,8 +60,11 @@ class MathMan():
                 if variables.grid[self.position[0]+1][self.position[1]] == 'P_B':
                     variables.question_displayed = True
                     variables.buff_timer = 5
-                    variables.paused = True
                     self.buff =True
+                    if len(variables.questions) > 0:
+                        variables.paused = True
+                    else:
+                        variables.buff_timer = 15* int(variables.speed_setting)
                 elif variables.grid[self.position[0]+1][self.position[1]] == 'P_N':
                     variables.score += 1
                 elif variables.grid[self.position[0]+1][self.position[1]] == 'FRT':
@@ -73,9 +80,14 @@ class MathMan():
             elif variables.grid[self.position[0]][self.position[1]-1] in ('P_B','P_N','NON','FRT'):
                 if variables.grid[self.position[0]][self.position[1]-1] == 'P_B':
                     variables.question_displayed = True
-                    variables.paused = True
                     variables.buff_timer = 5
                     self.buff = True
+                    if len(variables.questions) > 0:
+                        variables.paused = True
+                    else:
+                        variables.buff_timer = 15 * int(variables.speed_setting)
+                    
+                    
                     
                 elif variables.grid[self.position[0]][self.position[1]-1] == 'P_N':
                     variables.score += 1
@@ -93,9 +105,12 @@ class MathMan():
             elif variables.grid[self.position[0]][self.position[1]+1] in ('P_B','P_N','NON','FRT'):
                 if variables.grid[self.position[0]][self.position[1]+1] == 'P_B':
                     variables.question_displayed = True
-                    variables.paused = True
                     self.buff = True
                     variables.buff_timer = 5
+                    if len(variables.questions) > 0:
+                        variables.paused = True
+                    else:
+                        variables.buff_timer = 15 * int(variables.speed_setting)
                 elif variables.grid[self.position[0]][self.position[1]+1] == 'P_N':
                     variables.score += 1
                 elif variables.grid[self.position[0]][self.position[1]+1] == 'FRT':
