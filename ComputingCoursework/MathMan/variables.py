@@ -1,4 +1,6 @@
+
 """Stores the key variables of the game for easy editing/fetching"""
+
 
 
 #Pygame structure
@@ -6,7 +8,7 @@ x_resolution = 772
 y_resolution = 676
 
 #Question system
-difficulty_setting = "medium"
+difficulty_setting = "easy"
 
 #Game variables
 game_state = "splash"
@@ -16,6 +18,10 @@ lives         = 3
 math_man_buff = False
 buff_timer    = 0
 fruit_timer   = int(speed_setting) * 60
+
+# Questions
+
+questions = []
 
 
 

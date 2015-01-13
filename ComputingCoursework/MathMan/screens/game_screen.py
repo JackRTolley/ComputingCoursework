@@ -1,15 +1,18 @@
-import pygame,screen_drawing
+import pygame,screen_drawing,random
 from pygame.constants import K_l,K_e
-from MathMan import game_logic,variables
+from MathMan import game_logic,variables,questions
 
 
 pygame.init()
+questions.create_questions()
 #Colors
 white = pygame.Color(255,255,255)
 black = pygame.Color(  0,  0,  0)
 green = pygame.Color(  0,255,  0)
 red   = pygame.Color(255,  0,  0)
 grey  = pygame.Color( 50, 50, 50)
+
+question_choice = None
 
 
 def draw(surface):
@@ -27,7 +30,21 @@ def draw(surface):
     pygame.draw.rect(surface,white,(498,150,224,376)) 
     #game
     game_logic.draw_game((50,50), surface)
-
+    
+def get_question():
+    global question_choice  
+    #Question choosing
+    random.shuffle(variables.questions)
+    if question_choice == None:    
+        for i in variables.questions:
+            if i.difficulty == variables.difficulty_setting:
+                question_choice = i
+        
+        
+def draw_question(surface):       
+    global question_choice   
+    question_choice.draw(surface,(498,150))
+    
 def event_handling(event):
     game_logic.game_event_handling(event)
 

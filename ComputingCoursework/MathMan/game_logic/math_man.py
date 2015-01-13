@@ -4,6 +4,7 @@ from MathMan import variables
 
 
 
+
 class MathMan():
     
     def __init__(self):
