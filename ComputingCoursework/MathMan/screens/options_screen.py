@@ -138,19 +138,19 @@ def change_options(event):
                 medium_picked = False
                 hard_picked = False
                 print "difficulty changed to easy"
-                variables.difficulty = "easy"
+                variables.difficulty_setting  = "easy"
             elif (event.pos[0] >= 340) and (event.pos[0] <= 490):
                 easy_picked = False
                 medium_picked = True
                 hard_picked = False
                 print "difficulty changed to medium"
-                variables.difficulty = "medium"
+                variables.difficulty_setting  = "medium"
             elif (event.pos[0] >= 500) and (event.pos[0] <= 650):
                 easy_picked = False
                 medium_picked = False
                 hard_picked = True
                 print "difficulty changed to hard"
-                variables.difficulty = "hard"
+                variables.difficulty_setting  = "hard"
     # Event handling for the speed 
     elif (event.pos[1] >= 380) and (event.pos[1] <= 430):           
         if (event.pos[0] > 175) and (event.pos[0] < 655):

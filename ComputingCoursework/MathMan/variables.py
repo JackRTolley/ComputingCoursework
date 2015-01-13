@@ -13,7 +13,7 @@ difficulty_setting = "easy"
 #Game variables
 paused = False
 game_state = "splash"
-speed_setting = "8"
+speed_setting = "4"
 score         = 0
 lives         = 3
 math_man_buff = False

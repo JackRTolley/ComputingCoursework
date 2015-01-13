@@ -34,12 +34,15 @@ def draw(surface):
 def get_question():
     global question_choice  
     #Question choosing
+    print variables.difficulty_setting
     if len(variables.questions) > 0:
         random.shuffle(variables.questions)
         if question_choice == None:    
             for i in variables.questions:
                 if i.difficulty == variables.difficulty_setting:
                     question_choice = i
+            else:
+                question_choice = variables.questions[0]
     else:
         question_choice = None
         
