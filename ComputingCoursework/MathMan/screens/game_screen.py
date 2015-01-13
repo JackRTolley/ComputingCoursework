@@ -25,9 +25,7 @@ def draw(surface):
     screen_drawing.print_title(surface, "Score", white, 30, (530,50))
     screen_drawing.print_title(surface, str(variables.score), white, 30, (530,90))
     screen_drawing.print_title(surface, "Lives", white, 30, (530,540))
-    screen_drawing.print_title(surface, str(variables.lives), white, 30, (610,590))    
-    #pygame.draw.rect(surface,green,(498,526,224,100))
-    pygame.draw.rect(surface,white,(498,150,224,376)) 
+    screen_drawing.print_title(surface, str(variables.lives), white, 30, (610,590))     
     #game
     game_logic.draw_game((50,50), surface)
     
@@ -42,12 +40,41 @@ def get_question():
         
         
 def draw_question(surface):       
-    global question_choice   
-    question_choice.draw(surface,(498,150))
+    global question_choice
+    turns = 400 
+    if variables.question_displayed:  
+        question_choice.draw(surface,(498,150))
+        turns = 4
+    elif turns > 0:
+        turns -= 1
+        question_choice.draw(surface,(498,150))
+        variables.questions.remove(question_choice)
+        question_choice = None    
     
 def event_handling(event):
     game_logic.game_event_handling(event)
 
+def dynamic_question(event):
+    if variables.question_displayed:
+        question_choice.dynamic((498,150), event)
+    
+def get_answer(event):
+    global question_choice
+    
+    if event.pos[0] > 498 and event.pos[1] > 150 and event.pos[1] < 520 and variables.question_displayed:
+        if question_choice.check_correct((498,150),event):
+            print "Answered correctly"
+            variables.paused = False
+            variables.buff_timer = int(variables.speed_setting) * 15
+            variables.score += 50
+            variables.question_displayed = False
+        else:
+            print "not answered correctly"
+            variables.paused = False
+            variables.buff_timer = int(variables.speed_setting) * 5
+            variables.question_displayed = False
+             
+           
 
 def game_state(event):
     if event.key == K_l:

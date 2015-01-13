@@ -11,6 +11,7 @@ y_resolution = 676
 difficulty_setting = "easy"
 
 #Game variables
+paused = False
 game_state = "splash"
 speed_setting = "4"
 score         = 0
@@ -20,7 +21,7 @@ buff_timer    = 0
 fruit_timer   = int(speed_setting) * 60
 
 # Questions
-
+question_displayed = False
 questions = []
 
 

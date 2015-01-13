@@ -63,7 +63,43 @@ class Question():
         screens.screen_drawing.print_title(surface, self.fake_answer1, self.fake_answer1_color, 20, self.answer_positions[1])
         screens.screen_drawing.print_title(surface, self.fake_answer2, self.fake_answer2_color, 20, self.answer_positions[2])
         screens.screen_drawing.print_title(surface, self.fake_answer3, self.fake_answer3_color, 20, self.answer_positions[3])
+    
+    def dynamic(self,starting_position,event):
         
+        if self.answer_positions != None:
+            if event.pos[1] >= starting_position[1] and event.pos[0] >= starting_position[0]:
+                self.correct_answer_color = white
+                self.fake_answer1_color   = white
+                self.fake_answer2_color   = white
+                self.fake_answer3_color   = white
+                if event.pos[1] > self.answer_positions[0][1] and event.pos[1] < self.answer_positions[0][1] + 20:
+                    self.correct_answer_color = blue
+                elif event.pos[1] > self.answer_positions[1][1] and event.pos[1] < self.answer_positions[1][1] + 20:
+                    self.fake_answer1_color = blue
+                elif event.pos[1] > self.answer_positions[2][1] and event.pos[1] < self.answer_positions[2][1] + 20:
+                    self.fake_answer2_color = blue
+                elif event.pos[1] > self.answer_positions[3][1] and event.pos[1] < self.answer_positions[3][1] + 20:
+                    self.fake_answer3_color = blue
+    
+    def check_correct(self,starting_position,event):
+        
+        if self.answer_positions != None:
+            if event.pos[1] > starting_position[1] and event.pos[0] >= starting_position[0]:
+                if event.pos[1] > self.answer_positions[0][1] and event.pos[1] < self.answer_positions[0][1] + 20:
+                    self.correct_answer_color = green
+                    self.fake_answer1_color   = red
+                    self.fake_answer2_color   = red
+                    self.fake_answer3_color   = red
+                    return True
+                elif event.pos[1] < 520 :
+                    self.correct_answer_color = green
+                    self.fake_answer1_color   = red
+                    self.fake_answer2_color   = red
+                    self.fake_answer3_color   = red
+                    return False
+
+                
+                       
         
         
         

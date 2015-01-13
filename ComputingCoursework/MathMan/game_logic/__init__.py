@@ -21,7 +21,8 @@ def draw_game(start_pos,surface):
     global random_color,tile_surface
     row_number = 0
     column_number = 0
-    event_handling.event_handling_on_draw() 
+    if not variables.paused:    
+        event_handling.event_handling_on_draw() 
     for x in variables.grid:
         row_number += 1
         for y in x:                    

@@ -39,9 +39,14 @@ while True:
                     options_screen.change_options(event)
                     variables.game_state = options_screen.game_state(event)       
             elif variables.game_state == "game":
-                if event.type == KEYUP:
+                if event.type == MOUSEMOTION:
+                    if game_screen.question_choice != None:
+                        game_screen.dynamic_question(event)
+                elif event.type == MOUSEBUTTONDOWN:
+                    game_screen.get_answer(event) 
+                if event.type == KEYUP and not variables.paused:
                     game_screen.event_handling(event)
-                if event.type == KEYDOWN:
+                elif event.type == KEYDOWN:
                     if event.key in (K_l,K_e):
                         variables.game_state = game_screen.game_state(event)
             elif variables.game_state == "level_complete":
@@ -52,7 +57,7 @@ while True:
                     variables.game_state = level_complete_screen.game_state(event)
             elif variables.game_state == "game_over":                
                 if event.type == MOUSEMOTION:
-                    game_over_screen.dynamic(event)
+                    game_over_screen.dynamic(event)                       
                 elif event.type == MOUSEBUTTONDOWN:
                     variables.game_state = game_over_screen.game_state(event)
             
@@ -65,7 +70,7 @@ while True:
         elif variables.game_state == "game":
             game_screen.draw(DISPLAYSURF)
             game_screen.get_question()
-            if game_screen.question_choice != None:
+            if game_screen.question_choice != None  and variables.question_displayed:
                 game_screen.draw_question(DISPLAYSURF)
         elif variables.game_state == "level_complete":
             level_complete_screen.draw(DISPLAYSURF)   

@@ -6,14 +6,16 @@ my_hero = math_man.MathMan()
 my_hero.get_position()
 
 def event_handling_on_draw():
+        
     
-    my_hero.get_position()
-    my_hero.move()
-    variables.math_man_buff = my_hero.buff
-    my_hero.update_buff()
+    variables.math_man_buff = my_hero.buff   
     timer_logic.handle_buff_timer()
     timer_logic.handle_fruit_timer()
+    my_hero.get_position()
+    my_hero.move()
     
+    if variables.math_man_buff:
+        my_hero.update_buff()
     if checks.level_complete():
         variables.game_state = "level_complete"
     elif checks.end_game():
